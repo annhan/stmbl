@@ -41,8 +41,10 @@ HAL_PIN(high_dc_volt);
 HAL_PIN(max_dc_volt);
 
 HAL_PIN(dc_cur);
-HAL_PIN(high_dc_cur);
 HAL_PIN(max_dc_cur);
+
+HAL_PIN(ac_cur);
+HAL_PIN(max_ac_cur);
 
 HAL_PIN(pos_error);
 HAL_PIN(max_pos_error);
@@ -173,13 +175,13 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
     ctx->state      = SOFT_FAULT;
   }
 
-  if(ABS(PIN(pos_error)) > PIN(max_pos_error)) {
+  if(PIN(max_pos_error) > 0 && (ABS(PIN(pos_error)) > PIN(max_pos_error))) {
     ctx->fault      = POS_ERROR;
     PIN(last_fault) = ctx->fault;
     ctx->state      = SOFT_FAULT;
   }
 
-  if(PIN(sat) > PIN(max_sat)) {
+  if(PIN(max_sat) > 0 && (PIN(sat) > PIN(max_sat))) {
     ctx->fault      = SAT_ERROR;
     PIN(last_fault) = ctx->fault;
     ctx->state      = SOFT_FAULT;
@@ -214,7 +216,8 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
   scale       = MIN(scale, SCALE(PIN(hv_temp), PIN(high_hv_temp), PIN(max_hv_temp)));
   scale       = MIN(scale, SCALE(PIN(dc_volt), PIN(high_dc_volt), PIN(max_dc_volt)));
   scale       = MIN(scale, SCALE(PIN(mot_temp), PIN(high_mot_temp), PIN(max_mot_temp)));
-  scale       = MIN(scale, SCALE(PIN(dc_cur), PIN(max_dc_cur) * 0.8, PIN(max_dc_cur)));  // TODO PIN(high_dc_cur)
+  scale       = MIN(scale, SCALE(PIN(ac_cur), PIN(max_ac_cur), PIN(max_ac_cur) * 1.1));
+  scale       = MIN(scale, SCALE(PIN(dc_cur), PIN(max_dc_cur), PIN(max_dc_cur) * 1.1));
 
   PIN(dc_brake) = SCALE(PIN(dc_volt), PIN(max_dc_volt), PIN(high_dc_volt));
 

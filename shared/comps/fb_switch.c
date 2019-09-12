@@ -7,6 +7,8 @@
 HAL_COMP(fb_switch);
 
 HAL_PIN(polecount);
+HAL_PIN(track_fb);
+HAL_PIN(offset_first_enable);
 
 HAL_PIN(pos_fb);
 HAL_PIN(vel_fb);
@@ -24,6 +26,8 @@ HAL_PIN(mot_state);  // 0 = disabled, 1 = inc, 2 = start abs, 3 = abs
 HAL_PIN(mot_rev);
 HAL_PIN(mot_fb_no_offset);
 HAL_PIN(mot_abs_fb_no_offset);
+
+HAL_PIN(plot_fb_pos);
 
 HAL_PIN(com_pos);
 HAL_PIN(com_abs_pos);
@@ -44,6 +48,8 @@ HAL_PIN(mot_joint_ratio);
 
 HAL_PIN(phase_time);
 HAL_PIN(phase_cur);
+HAL_PIN(phase_gain);
+HAL_PIN(offset);
 HAL_PIN(id);
 
 HAL_PIN(current_com_pos);
@@ -52,6 +58,7 @@ HAL_PIN(en);
 
 struct fb_switch_ctx_t {
   int32_t current_com_pos;
+  float phase_start_pos;
   float cmd_offset;
   float com_offset;
   float phase_timer;
@@ -67,6 +74,8 @@ static void nrt_init(volatile void *ctx_ptr, volatile hal_pin_inst_t *pin_ptr) {
   ctx->com_offset      = 0.0;
   PIN(phase_cur)       = 1.0;
   PIN(phase_time)      = 1.0;
+  PIN(phase_gain)      = 100.0;
+  PIN(offset_first_enable) = 1.0;
 }
 
 static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_t *pin_ptr) {
@@ -110,15 +119,20 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
   PIN(joint_fb_no_offset)   = joint_pos;
 
   PIN(pos_fb) = mod(mot_pos + ctx->cmd_offset);
+  PIN(plot_fb_pos) = PIN(pos_fb);
   PIN(vel_fb) = mot_pos;
+
+  PIN(id) = 0.0;
 
   if(PIN(en) <= 0.0) {
     PIN(state)           = 0.0;
     ctx->current_com_pos = 10;
     ctx->com_offset      = 0.0;
-    ctx->cmd_offset      = minus(PIN(cmd_pos), mot_pos);
-    PIN(pos_fb)          = mod(mot_pos);
-    PIN(id)              = 0.0;
+    if((PIN(track_fb) <= 0.0 || PIN(offset_first_enable) > 0) && PIN(mot_state) > 0.0){
+      PIN(offset_first_enable) = 0;
+      ctx->cmd_offset      = minus(PIN(cmd_pos), mot_pos);
+    }
+    PIN(plot_fb_pos)          = mod(mot_pos);
   } else {
     PIN(state) = 1.0;
     if(PIN(joint_state) >= 2.0 && ctx->current_com_pos > 3.0) {
@@ -134,27 +148,34 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
       ctx->com_offset      = 0.0;
     }
     if(ctx->current_com_pos > 4.0) { // autophasing
-      PIN(com_fb) = 0.0;
+      switch(ctx->current_com_pos) {
+        case 5: // phasing
+          ctx->phase_timer += period;
+          PIN(id) = CLAMP(ctx->phase_timer / (MAX(PIN(phase_time), 0.1) / 4.0) * PIN(phase_cur), 0.0, PIN(phase_cur)); // ramp up id
+          ctx->com_offset += minus(ctx->phase_start_pos, mot_pos) * PIN(phase_gain) * period;
 
-      ctx->phase_timer += period;
-      PIN(id) = CLAMP(ctx->phase_timer / (MAX(PIN(phase_time), 0.1) / 3.0) * PIN(phase_cur), 0.0, PIN(phase_cur));
+          if(ctx->phase_timer >= MAX(PIN(phase_time), 0.1)) { // end
+            ctx->phase_timer     = 0.0;
+            //ctx->com_offset      = -mod(mot_pos * PIN(polecount) / PIN(mot_polecount));
+            ctx->cmd_offset      = minus(PIN(cmd_pos), mot_pos);
+            ctx->current_com_pos = 4.0;
+          }
+        break;
 
-      if(ctx->phase_timer >= MAX(PIN(phase_time), 0.1)) {
-        ctx->phase_timer     = 0.0;
-        ctx->com_offset      = -mod(mot_pos * PIN(polecount) / PIN(mot_polecount));
-        ctx->cmd_offset      = minus(PIN(cmd_pos), mot_pos);
-        PIN(id)              = 0.0;
-        ctx->current_com_pos = 4.0;
+        default: // init
+          ctx->phase_start_pos = mot_pos; // safe start pos
+          PIN(com_fb) = 0.0;
+          ctx->com_offset = 0.0;
+          ctx->current_com_pos = 5.0;
       }
     }
 
-
     switch(ctx->current_com_pos) {
-      case 4:
+      case 4: // autophasing + mot fb -> com fb
         PIN(com_fb) = mod(mot_pos * PIN(polecount) / PIN(mot_polecount) + ctx->com_offset);
         break;
 
-      case 3:
+      case 3: // joint fb -> com fb
         if(PIN(joint_state) != 3.0) {
           PIN(com_fb) = mod(mot_pos * PIN(polecount) / PIN(mot_polecount) + ctx->com_offset); // tracking
         } else {
@@ -162,7 +183,7 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
         }
         break;
 
-      case 2:
+      case 2: // com fb -> com fb
         if(PIN(com_state) != 3.0) {
           PIN(com_fb) = mod(mot_pos * PIN(polecount) / PIN(mot_polecount) + ctx->com_offset); // tracking
         } else {
@@ -170,7 +191,7 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
         }
         break;
 
-      case 1:
+      case 1: // mot fb -> com fb
         if(PIN(mot_state) != 3.0) {
           PIN(state) = 0.0;
         } else {
@@ -180,9 +201,11 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
 
       default:
         PIN(state) = 0.0;
+        PIN(com_fb) = mod(ctx->phase_start_pos * PIN(polecount) / PIN(mot_polecount) + ctx->com_offset);
     }
   }
   PIN(current_com_pos) = ctx->current_com_pos;
+  PIN(offset) = ctx->com_offset;
 }
 
 hal_comp_t fb_switch_comp_struct = {

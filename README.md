@@ -17,17 +17,14 @@ any responsibility for such compliance.
 
 This software is released under the GPLv3.
 
-stmbl
+STMBL
 =====
-There is a wiki. https://github.com/rene-dev/stmbl/wiki
-
-Documentation is starting to be written. See the .adoc files here: https://github.com/rene-dev/stmbl/tree/master/docs/src
-
+There is work in progress on documentation: https://github.com/rene-dev/stmbl/blob/master/docs/src/Getting%20Started.adoc
 
 **IRC: #stmbl on irc.hackint.eu**
 https://webirc.hackint.org/#stmbl
 
-stmbl is an open source servo drive designed for Retrofitting CNC machines and Robots. It supports Industrial AC and DC servos with up to 320V and 2kW (see [specs](https://github.com/rene-dev/stmbl/wiki/specs) for details).
+STMBL is an open source servo drive designed for Retrofitting CNC machines and Robots. It supports Industrial AC and DC servos with up to 320V and 2kW (see [specs](https://github.com/rene-dev/stmbl/wiki/specs) for details).
 
 Documentation about the PCB and pinout of the feedback connector:
 
@@ -35,25 +32,34 @@ https://github.com/rene-dev/stmbl/wiki/Pinouts
 
 https://github.com/rene-dev/stmbl/wiki/PCB
 
-##### Hardware version 4.0
-![top](http://rene-dev.github.io/IMG_2017-03-05%2022:08:03.jpg)
-![bot](http://rene-dev.github.io/IMG_2017-03-05%2022:07:44.jpg)
+##### Hardware version 4.1
+![top](https://github.com/rene-dev/rene-dev.github.io/raw/master/IMG_3592.JPG)
+![bot](https://github.com/rene-dev/rene-dev.github.io/raw/master/IMG_3590.JPG)
+![case1](https://github.com/rene-dev/rene-dev.github.io/raw/master/stmblcase1.jpg)
+![case2](https://github.com/rene-dev/rene-dev.github.io/raw/master/stmblcase2.jpg)
 
 ##### Driving a Bosch Turboscara
-https://www.youtube.com/watch?v=d6NH1W7DUnQ
+https://www.youtube.com/watch?v=d6NH1W7DUnQ  
+https://www.youtube.com/watch?v=oTllxnYAgFc
 
 ##### Driving a Manutec Robot
 https://www.youtube.com/watch?v=gwgnAeGjZrA  
 https://www.youtube.com/watch?v=wXLcAZwjlzE
+
+##### Driving a Weeke BP12 VMC
+https://www.youtube.com/watch?v=24LftGNp4MI
+
+##### Driving a Haas VF0 (Spindle + Axes)
+https://www.youtube.com/watch?v=kqenepupJIs
 
 ##### Drivetest
 https://www.youtube.com/watch?v=-E1o_5cFyto
 
 #### Supported Motors
 * Synchronous AC Servos
+* Asynchronous AC Servos
 * DC Servos
 * 2 Phase HF spindle motors
-* IRAMX Hardware testet up to 320V
 
 #### Supported Feedback systems
 * Resolvers
@@ -63,6 +69,7 @@ https://www.youtube.com/watch?v=-E1o_5cFyto
 * Sanyo Denki absolute encoders
 * Yaskawa absolute encoders
 * Sick HIPERFACE®
+* Tamagawa SmartAbs
 
 ##### Planned:
 * EnDat
@@ -77,11 +84,18 @@ https://www.youtube.com/watch?v=-E1o_5cFyto
 * RS485
 
 #### TODO
-* AC Async
+* Sensorless FOC
 
 #### Directories
-* hw/eagle/ Eagle board files and schematics
-* hw/spice/ Spice simulation for resolver interface
-* src/ STM32F4 code, command, feedback and control loop
-* stm32f103/ STM32F1 code, running on the HV side, generating PWM
-* bootloader/ bootloader for the f4
+* [hw/spice/](hw/spice/) Spice simulation for resolver interface
+* [hw/kicad/v4.0/](hw/kicad/v4.0/) kicad files for version 4
+* [src/](src/) STM32F4 code, command, feedback and control loop
+* [stm32f303/](stm32f303/) STM32F3 code, running on the HV side, generating PWM
+
+##### Commercial Applications
+
+Should you find the GPL license insufficient for your needs, other licenses
+can be purchased from my company.
+
+Likewise, please contact us should you wish to fund the further development
+of this project, or are interesed in custom hardware, software, or commercial support.

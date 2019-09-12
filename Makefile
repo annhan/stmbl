@@ -46,10 +46,12 @@ else
 endif
 
 COMPS += src/comps/encm.c
+COMPS += src/comps/smartabs.c
 COMPS += src/comps/adc.c
 COMPS += src/comps/enc_fb.c
 COMPS += src/comps/conf.c
 COMPS += src/comps/res.c
+COMPS += src/comps/hx711.c
 
 COMPS += shared/comps/sim.c
 COMPS += shared/comps/term.c
@@ -81,14 +83,24 @@ COMPS += shared/comps/vel_int.c
 COMPS += shared/comps/linrev.c
 COMPS += shared/comps/psi.c
 COMPS += shared/comps/stp.c
-COMPS += shared/comps/uf.c
+#COMPS += shared/comps/uf.c
+COMPS += shared/comps/uf2.c
 COMPS += shared/comps/ramp.c
 COMPS += shared/comps/scale.c
 COMPS += shared/comps/idx_home.c
 COMPS += shared/comps/move.c
-COMPS += shared/comps/ac.c
+# COMPS += shared/comps/ac.c
 COMPS += shared/comps/not.c
+COMPS += shared/comps/and.c
+COMPS += shared/comps/or.c
 COMPS += shared/comps/jog.c
+COMPS += shared/comps/velbuf.c
+COMPS += shared/comps/avg.c
+COMPS += shared/comps/mux.c
+COMPS += shared/comps/veltopos.c
+COMPS += shared/comps/wobl.c
+COMPS += shared/comps/debounce.c
+COMPS += shared/comps/pos_filter.c
 
 SOURCES += $(COMPS)
 

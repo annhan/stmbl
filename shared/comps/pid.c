@@ -60,11 +60,14 @@ HAL_PIN(vel_p);  // (1/s)
 HAL_PIN(vel_i);
 HAL_PIN(vel_g);
 
+HAL_PIN(j_lpf);
+
 HAL_PIN(acc_g);
 
 HAL_PIN(g);  // model limit scaling
 
-HAL_PIN(j);  // (kgm^2)
+HAL_PIN(j_mot);  // (kgm^2)
+HAL_PIN(j_load);  // (kgm^2)
 
 
 // system limits
@@ -85,6 +88,7 @@ HAL_PIN(saturated);  // (s)
 struct pid_ctx_t {
   float sat;         //saturated time
   float torque_sum;  //integrator
+  float acc_cmd_lp;
 };
 
 static void nrt_init(volatile void *ctx_ptr, volatile hal_pin_inst_t *pin_ptr) {
@@ -93,6 +97,7 @@ static void nrt_init(volatile void *ctx_ptr, volatile hal_pin_inst_t *pin_ptr) {
 
   ctx->sat        = 0.0;
   ctx->torque_sum = 0.0;
+  ctx->acc_cmd_lp = 0.0;
   PIN(pos_en)     = 1.0;
   PIN(vel_en)     = 1.0;
   PIN(acc_en)     = 1.0;
@@ -109,7 +114,9 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
   struct pid_ctx_t *ctx      = (struct pid_ctx_t *)ctx_ptr;
   struct pid_pin_ctx_t *pins = (struct pid_pin_ctx_t *)pin_ptr;
 
-  float j = MAX(PIN(j), 0.0);
+  float mot_j = MAX(PIN(j_mot), 0.0);
+  float load_j = MAX(PIN(j_load), 0.0);
+  float lpf = LP_HZ(MAX(PIN(j_lpf), 0.0));
   float g = CLAMP(PIN(g), 0.0, 1.0);
 
   float torque_ext_cmd = PIN(torque_ext_cmd);
@@ -122,6 +129,7 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
   float acc_min     = -PIN(max_usr_acc);  //MAX(torque_min / j, -PIN(max_usr_acc));
   float acc_max     = PIN(max_usr_acc);   //MIN(torque_max / j, PIN(max_usr_acc));
   float acc_cmd;
+  float acc_cmd_hp;
   float acc_sat;
 
   float vel_ext_cmd = PIN(vel_ext_cmd);
@@ -178,7 +186,7 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
     //vel_cmd = CLAMP(vel_cmd, vel_fb + acc_min * period, vel_fb + acc_max * period); // adaptive loop clamping
     vel_cmd = CLAMP(vel_cmd, vel_min * vel_g, vel_max * vel_g);  // p clamping
     vel_cmd += vel_ext_cmd;                                      // ff
-    vel_sat = SAT2(vel_cmd, vel_min * 0.99, vel_max * 0.99);
+    vel_sat = SAT2(vel_cmd, vel_min * 0.99, vel_max * 0.99);  // TODO include vel_g
     vel_cmd = CLAMP(vel_cmd, vel_min, vel_max);  // clamping
 
     // vel -> acc
@@ -186,11 +194,13 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
     acc_cmd   = vel_error * vel_p;                                 // p
     acc_cmd   = CLAMP(acc_cmd, acc_min * acc_g, acc_max * acc_g);  // p clamping
     acc_cmd += acc_ext_cmd;                                        // ff
-    acc_sat = SAT2(acc_cmd, acc_min * 0.99, acc_max * 0.99);
+    acc_sat = SAT2(acc_cmd, acc_min * 0.99, acc_max * 0.99);  // TODO include acc_g
     acc_cmd = CLAMP(acc_cmd, acc_min, acc_max);  // clamping
 
     // acc -> torque
-    torque_cmd = acc_cmd * j + torque_ext_cmd;                                                   // ff
+    ctx->acc_cmd_lp = acc_cmd * lpf + ctx->acc_cmd_lp * (1.0 - lpf);
+    acc_cmd_hp = acc_cmd - ctx->acc_cmd_lp;
+    torque_cmd = acc_cmd_hp * mot_j + ctx->acc_cmd_lp * (mot_j + load_j) + torque_ext_cmd;            // ff
     torque_cmd = CLAMP(torque_cmd, torque_min, torque_max);                                      // clamping
     ctx->torque_sum += vel_error * period * vel_i;                                               // i
     ctx->torque_sum = CLAMP(ctx->torque_sum, torque_min - torque_cmd, torque_max - torque_cmd);  // dynamic integral clamping
@@ -222,7 +232,7 @@ static void rt_func(float period, volatile void *ctx_ptr, volatile hal_pin_inst_
     ctx->sat = MAX(ctx->sat, 0.0);
   } else {
     ctx->torque_sum = 0.0;
-    pos_error       = 0.0;
+    // pos_error       = 0.0;
     vel_cmd         = 0.0;
     vel_error       = 0.0;
     acc_cmd         = 0.0;

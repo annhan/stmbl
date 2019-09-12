@@ -230,9 +230,13 @@ F 0 "P14" H 1400 2000 50  0000 C CNN
 F 1 "CONN_01X04" V 1500 1750 50  0000 C CNN
 F 2 "stmbl:Pin_Header_Angled_1x04" H 1400 1750 50  0001 C CNN
 F 3 "" H 1400 1750 50  0000 C CNN
-F 4 " " H 1400 1750 50  0001 C CNN "Manufacturer No"
+F 4 "901210764" H 1400 1750 50  0001 C CNN "Manufacturer No"
 F 5 " " H 1400 1750 50  0001 C CNN "Voltage"
 F 6 " " H 1400 1750 50  0001 C CNN "Source"
+F 7 "" H 0   0   50  0001 C CNN "Description"
+F 8 "" H 0   0   50  0001 C CNN "InternalName"
+F 9 "" H 0   0   50  0001 C CNN "Tolerance"
+F 10 "Molex" H 0   0   50  0001 C CNN "Manufacturer"
 	1    1400 1750
 	-1   0    0    1   
 $EndComp
@@ -328,6 +332,13 @@ F 0 "U32" H 6450 900 60  0000 C CNN
 F 1 "non_plated" H 6500 1500 60  0000 C CNN
 F 2 "stmbl:non_plated_3mm" H 6450 1250 60  0001 C CNN
 F 3 "" H 6450 1250 60  0001 C CNN
+F 4 "" H 0   0   50  0001 C CNN "Description"
+F 5 "" H 0   0   50  0001 C CNN "InternalName"
+F 6 "" H 0   0   50  0001 C CNN "Manufacturer No"
+F 7 "" H 0   0   50  0001 C CNN "Source"
+F 8 "" H 0   0   50  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Voltage"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    6450 1250
 	1    0    0    -1  
 $EndComp
@@ -339,6 +350,13 @@ F 0 "LOGO1" H 2400 5675 50  0000 C CNN
 F 1 "OPEN_HARDWARE_1" H 2400 5175 50  0000 C CNN
 F 2 "stmbl:Symbol_OSHW-Logo_SilkScreen" H 2400 5400 60  0001 C CNN
 F 3 "" H 2400 5400 60  0001 C CNN
+F 4 "" H 0   0   50  0001 C CNN "Description"
+F 5 "" H 0   0   50  0001 C CNN "InternalName"
+F 6 "" H 0   0   50  0001 C CNN "Manufacturer No"
+F 7 "" H 0   0   50  0001 C CNN "Source"
+F 8 "" H 0   0   50  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Voltage"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    2400 5400
 	1    0    0    -1  
 $EndComp

@@ -27,6 +27,8 @@ F 5 "ES1J-LTP" H 6400 4250 60  0001 C CNN "Manufacturer No"
 F 6 "" H 6400 4250 60  0001 C CNN "Voltage"
 F 7 "" H 6400 4250 60  0001 C CNN "Source"
 F 8 "" H 6400 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Micro Commercial Co" H 0   0   50  0001 C CNN "Manufacturer"
 	1    6400 4250
 	0    1    1    0   
 $EndComp
@@ -43,6 +45,8 @@ F 5 "ES1J-LTP" H 7200 3750 60  0001 C CNN "Manufacturer No"
 F 6 "" H 7200 3750 60  0001 C CNN "Voltage"
 F 7 "" H 7200 3750 60  0001 C CNN "Source"
 F 8 "" H 7200 3750 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Micro Commercial Co" H 0   0   50  0001 C CNN "Manufacturer"
 	1    7200 3750
 	0    1    1    0   
 $EndComp
@@ -59,6 +63,8 @@ F 5 "DT3316P-105" H 6800 4000 60  0001 C CNN "Manufacturer No"
 F 6 "" H 6800 4000 60  0001 C CNN "Voltage"
 F 7 "" H 6800 4000 60  0001 C CNN "Source"
 F 8 "" H 6800 4000 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Coilcraft" H 0   0   50  0001 C CNN "Manufacturer"
 	1    6800 4000
 	0    -1   -1   0   
 $EndComp
@@ -74,7 +80,9 @@ F 4 "50V" H 7200 4250 60  0001 C CNN "Voltage"
 F 5 "" H 7200 4250 60  0001 C CNN "InternalName"
 F 6 "" H 7200 4250 60  0001 C CNN "Manufacturer No"
 F 7 "" H 7200 4250 60  0001 C CNN "Source"
-F 8 "X7R" H 7200 4250 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 7200 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    7200 4250
 	1    0    0    -1  
 $EndComp
@@ -123,7 +131,9 @@ F 4 "25V" H 6400 3750 60  0001 C CNN "Voltage"
 F 5 "" H 6400 3750 60  0001 C CNN "InternalName"
 F 6 "" H 6400 3750 60  0001 C CNN "Manufacturer No"
 F 7 "" H 6400 3750 60  0001 C CNN "Source"
-F 8 "X7R" H 6400 3750 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 6400 3750 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    6400 3750
 	1    0    0    -1  
 $EndComp
@@ -139,7 +149,9 @@ F 4 "50V" H 5250 3750 60  0001 C CNN "Voltage"
 F 5 "" H 5250 3750 60  0001 C CNN "InternalName"
 F 6 "" H 5250 3750 60  0001 C CNN "Manufacturer No"
 F 7 "" H 5250 3750 60  0001 C CNN "Source"
-F 8 "X7R" H 5250 3750 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 5250 3750 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    5250 3750
 	1    0    0    -1  
 $EndComp
@@ -189,6 +201,8 @@ F 5 "" H 5600 3750 30  0001 C CNN "Manufacturer No"
 F 6 "" H 5600 3750 30  0001 C CNN "Voltage"
 F 7 "" H 5600 3750 30  0001 C CNN "Source"
 F 8 "1%" H 5600 3750 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    5600 3750
 	-1   0    0    1   
 $EndComp
@@ -205,6 +219,8 @@ F 5 "" H 6550 3100 30  0001 C CNN "Manufacturer No"
 F 6 "" H 6550 3100 30  0001 C CNN "Voltage"
 F 7 "" H 6550 3100 30  0001 C CNN "Source"
 F 8 "1%" H 6550 3100 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    6550 3100
 	0    -1   -1   0   
 $EndComp
@@ -231,6 +247,8 @@ F 5 "LTST-S220KGKT" H 9300 4350 50  0001 C CNN "Manufacturer No"
 F 6 "" H 9300 4350 50  0001 C CNN "Voltage"
 F 7 "" H 9300 4350 50  0001 C CNN "Source"
 F 8 "" H 9300 4350 50  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Lite-On" H 0   0   50  0001 C CNN "Manufacturer"
 	1    9300 4350
 	0    -1   -1   0   
 $EndComp
@@ -258,6 +276,8 @@ F 5 "" H 9300 3900 30  0001 C CNN "Manufacturer No"
 F 6 "" H 9300 3900 30  0001 C CNN "Voltage"
 F 7 "" H 9300 3900 30  0001 C CNN "Source"
 F 8 "1%" H 9300 3900 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    9300 3900
 	1    0    0    -1  
 $EndComp
@@ -291,6 +311,8 @@ F 5 "" H 2700 6200 30  0001 C CNN "Manufacturer No"
 F 6 "" H 2700 6200 30  0001 C CNN "Voltage"
 F 7 "" H 2700 6200 30  0001 C CNN "Source"
 F 8 "1%" H 2700 6200 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    2700 6200
 	0    1    1    0   
 $EndComp
@@ -307,6 +329,8 @@ F 5 "" H 2450 6450 30  0001 C CNN "Manufacturer No"
 F 6 "" H 2450 6450 30  0001 C CNN "Voltage"
 F 7 "" H 2450 6450 30  0001 C CNN "Source"
 F 8 "1%" H 2450 6450 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    2450 6450
 	1    0    0    -1  
 $EndComp
@@ -323,6 +347,8 @@ F 5 "SS34A" H 2950 6850 60  0001 C CNN "Manufacturer No"
 F 6 "" H 2950 6850 60  0001 C CNN "Voltage"
 F 7 "" H 2950 6850 60  0001 C CNN "Source"
 F 8 "" H 2950 6850 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Multicomp" H 0   0   50  0001 C CNN "Manufacturer"
 	1    2950 6850
 	0    1    1    0   
 $EndComp
@@ -338,7 +364,9 @@ F 4 "" H 2600 5900 60  0001 C CNN "InternalName"
 F 5 "" H 2600 5900 60  0001 C CNN "Manufacturer No"
 F 6 "50V" H 2600 5900 60  0001 C CNN "Voltage"
 F 7 "" H 2600 5900 60  0001 C CNN "Source"
-F 8 "X7R" H 2600 5900 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 2600 5900 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    2600 5900
 	0    -1   -1   0   
 $EndComp
@@ -355,6 +383,8 @@ F 5 "LQH32PN100MNCL" H 3350 6050 60  0001 C CNN "Manufacturer No"
 F 6 "" H 3350 6050 60  0001 C CNN "Voltage"
 F 7 "" H 3350 6050 60  0001 C CNN "Source"
 F 8 "" H 3350 6050 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Murata" H 0   0   50  0001 C CNN "Manufacturer"
 	1    3350 6050
 	0    -1   -1   0   
 $EndComp
@@ -380,10 +410,12 @@ F 1 "ACT4088" H 1950 5800 60  0000 C CNN
 F 2 "stmbl:SOT-23-6" H 1950 6050 60  0001 C CNN
 F 3 "" H 1950 6050 60  0000 C CNN
 F 4 "" H 1950 6050 60  0001 C CNN "InternalName"
-F 5 "ACT4088US" H 1950 6050 60  0001 C CNN "Manufacturer No"
+F 5 "ACT4088US-T" H 1950 6050 60  0001 C CNN "Manufacturer No"
 F 6 "" H 1950 6050 60  0001 C CNN "Voltage"
 F 7 "" H 1950 6050 60  0001 C CNN "Source"
 F 8 "" H 1950 6050 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Active-Semi" H 0   0   50  0001 C CNN "Manufacturer"
 	1    1950 6050
 	1    0    0    -1  
 $EndComp
@@ -447,6 +479,8 @@ F 5 "" H 9300 3500 30  0001 C CNN "Manufacturer No"
 F 6 "" H 9300 3500 30  0001 C CNN "Voltage"
 F 7 "" H 9300 3500 30  0001 C CNN "Source"
 F 8 "1%" H 9300 3500 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    9300 3500
 	1    0    0    -1  
 $EndComp
@@ -482,7 +516,9 @@ F 4 "25V" H 3750 6450 60  0001 C CNN "Voltage"
 F 5 "" H 3750 6450 60  0001 C CNN "InternalName"
 F 6 "" H 3750 6450 60  0001 C CNN "Manufacturer No"
 F 7 "" H 3750 6450 60  0001 C CNN "Source"
-F 8 "X7R" H 3750 6450 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 3750 6450 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    3750 6450
 	1    0    0    -1  
 $EndComp
@@ -498,7 +534,9 @@ F 4 "" H 3250 6450 60  0001 C CNN "InternalName"
 F 5 "" H 3250 6450 60  0001 C CNN "Manufacturer No"
 F 6 "50V" H 3250 6450 60  0001 C CNN "Voltage"
 F 7 "" H 3250 6450 60  0001 C CNN "Source"
-F 8 "X7R" H 3250 6450 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 3250 6450 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    3250 6450
 	1    0    0    -1  
 $EndComp
@@ -515,6 +553,8 @@ F 5 "" H 4600 3600 60  0001 C CNN "InternalName"
 F 6 "" H 4600 3600 60  0001 C CNN "Voltage"
 F 7 "" H 4600 3600 60  0001 C CNN "Source"
 F 8 "" H 4600 3600 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "Power Integrations" H 0   0   50  0001 C CNN "Manufacturer"
 	1    4600 3600
 	1    0    0    -1  
 $EndComp
@@ -531,6 +571,8 @@ F 5 "C1808W154KCRACTU" H 3950 4400 60  0001 C CNN "Manufacturer No"
 F 6 "500V" H 3950 4400 60  0001 C CNN "Voltage"
 F 7 "" H 3950 4400 60  0001 C CNN "Source"
 F 8 "X7R" H 3950 4400 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "KEMET" H 0   0   50  0001 C CNN "Manufacturer"
 	1    3950 4400
 	1    0    0    -1  
 $EndComp
@@ -560,6 +602,8 @@ F 5 "" H 2450 6850 30  0001 C CNN "Manufacturer No"
 F 6 "" H 2450 6850 30  0001 C CNN "Voltage"
 F 7 "" H 2450 6850 30  0001 C CNN "Source"
 F 8 "1%" H 2450 6850 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    2450 6850
 	1    0    0    -1  
 $EndComp
@@ -582,6 +626,8 @@ F 5 "" H 5600 3350 30  0001 C CNN "Manufacturer No"
 F 6 "" H 5600 3350 30  0001 C CNN "Voltage"
 F 7 "" H 5600 3350 30  0001 C CNN "Source"
 F 8 "1%" H 5600 3350 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    5600 3350
 	-1   0    0    1   
 $EndComp
@@ -598,6 +644,8 @@ F 5 "" H 6150 3100 30  0001 C CNN "Manufacturer No"
 F 6 "" H 6150 3100 30  0001 C CNN "Voltage"
 F 7 "" H 6150 3100 30  0001 C CNN "Source"
 F 8 "1%" H 6150 3100 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    6150 3100
 	0    -1   -1   0   
 $EndComp
@@ -636,11 +684,13 @@ F 0 "C50" H 3525 6550 50  0000 L CNN
 F 1 "2.2µ" H 3525 6350 50  0000 L CNN
 F 2 "stmbl:C_0603" H 3538 6300 30  0001 C CNN
 F 3 "" H 3500 6450 60  0000 C CNN
-F 4 "25V" H 3500 6450 60  0001 C CNN "Voltage"
+F 4 "35V" H 3500 6450 60  0001 C CNN "Voltage"
 F 5 "" H 3500 6450 60  0001 C CNN "InternalName"
 F 6 "" H 3500 6450 60  0001 C CNN "Manufacturer No"
 F 7 "" H 3500 6450 60  0001 C CNN "Source"
-F 8 "X7R" H 3500 6450 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 3500 6450 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    3500 6450
 	1    0    0    -1  
 $EndComp
@@ -660,7 +710,9 @@ F 4 "25V" H 7950 4250 60  0001 C CNN "Voltage"
 F 5 "" H 7950 4250 60  0001 C CNN "InternalName"
 F 6 "" H 7950 4250 60  0001 C CNN "Manufacturer No"
 F 7 "" H 7950 4250 60  0001 C CNN "Source"
-F 8 "X7R" H 7950 4250 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 7950 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    7950 4250
 	1    0    0    -1  
 $EndComp
@@ -676,7 +728,9 @@ F 4 "25V" H 7450 4250 60  0001 C CNN "Voltage"
 F 5 "" H 7450 4250 60  0001 C CNN "InternalName"
 F 6 "" H 7450 4250 60  0001 C CNN "Manufacturer No"
 F 7 "" H 7450 4250 60  0001 C CNN "Source"
-F 8 "X7R" H 7450 4250 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 7450 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    7450 4250
 	1    0    0    -1  
 $EndComp
@@ -694,7 +748,9 @@ F 4 "25V" H 4000 6450 60  0001 C CNN "Voltage"
 F 5 "" H 4000 6450 60  0001 C CNN "InternalName"
 F 6 "" H 4000 6450 60  0001 C CNN "Manufacturer No"
 F 7 "" H 4000 6450 60  0001 C CNN "Source"
-F 8 "X7R" H 4000 6450 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 4000 6450 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    4000 6450
 	1    0    0    -1  
 $EndComp
@@ -724,17 +780,19 @@ Wire Wire Line
 $Comp
 L stmbl:R R161
 U 1 1 5886A2CE
-P 8450 4250
-F 0 "R161" V 8530 4250 50  0000 C CNN
-F 1 "3.9k" V 8450 4250 50  0000 C CNN
-F 2 "stmbl:R_0603" V 8380 4250 30  0001 C CNN
-F 3 "" H 8450 4250 30  0000 C CNN
-F 4 "" H 8450 4250 30  0001 C CNN "InternalName"
-F 5 "" H 8450 4250 30  0001 C CNN "Manufacturer No"
-F 6 "" H 8450 4250 30  0001 C CNN "Voltage"
-F 7 "" H 8450 4250 30  0001 C CNN "Source"
-F 8 "1%" H 8450 4250 30  0001 C CNN "Tolerance"
-	1    8450 4250
+P 8700 4250
+F 0 "R161" V 8780 4250 50  0000 C CNN
+F 1 "3.9k" V 8700 4250 50  0000 C CNN
+F 2 "stmbl:R_0603" V 8630 4250 30  0001 C CNN
+F 3 "" H 8700 4250 30  0000 C CNN
+F 4 "" H 8700 4250 30  0001 C CNN "InternalName"
+F 5 "" H 8700 4250 30  0001 C CNN "Manufacturer No"
+F 6 "" H 8700 4250 30  0001 C CNN "Voltage"
+F 7 "" H 8700 4250 30  0001 C CNN "Source"
+F 8 "1%" H 8700 4250 30  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
+	1    8700 4250
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -749,7 +807,9 @@ F 4 "25V" H 7700 4250 60  0001 C CNN "Voltage"
 F 5 "" H 7700 4250 60  0001 C CNN "InternalName"
 F 6 "" H 7700 4250 60  0001 C CNN "Manufacturer No"
 F 7 "" H 7700 4250 60  0001 C CNN "Source"
-F 8 "X7R" H 7700 4250 60  0001 C CNN "Tolerance"
+F 8 "X5R" H 7700 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    7700 4250
 	1    0    0    -1  
 $EndComp
@@ -842,19 +902,49 @@ Wire Wire Line
 Wire Wire Line
 	5600 3100 6000 3100
 $Comp
-L stmbl:CP C70
-U 1 1 5AC60AA6
+L stmbl:C C70
+U 1 1 5B1EE673
 P 8200 4250
 F 0 "C70" H 8225 4350 50  0000 L CNN
-F 1 "22µ" H 8225 4150 50  0000 L CNN
-F 2 "stmbl:C_Radial_D6.5_L11_P2.5" H 8238 4100 50  0000 C CNN
-F 3 "" H 8200 4250 50  0000 C CNN
-F 4 "" H 8200 4250 50  0001 C CNN "InternalName"
-F 5 "" H 8200 4250 50  0001 C CNN "Manufacturer No"
-F 6 "50V" H 8200 4250 50  0001 C CNN "Voltage"
-F 7 "" H 8200 4250 50  0001 C CNN "Source"
-F 8 "" H 8200 4250 50  0001 C CNN "Tolerance"
+F 1 "10µ" H 8225 4150 50  0000 L CNN
+F 2 "stmbl:C_0805" H 8238 4100 30  0001 C CNN
+F 3 "" H 8200 4250 60  0000 C CNN
+F 4 "25V" H 8200 4250 60  0001 C CNN "Voltage"
+F 5 "" H 8200 4250 60  0001 C CNN "InternalName"
+F 6 "" H 8200 4250 60  0001 C CNN "Manufacturer No"
+F 7 "" H 8200 4250 60  0001 C CNN "Source"
+F 8 "X5R" H 8200 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
 	1    8200 4250
 	1    0    0    -1  
 $EndComp
+$Comp
+L stmbl:C C145
+U 1 1 5B1EE7AD
+P 8450 4250
+F 0 "C145" H 8475 4350 50  0000 L CNN
+F 1 "10µ" H 8475 4150 50  0000 L CNN
+F 2 "stmbl:C_0805" H 8488 4100 30  0001 C CNN
+F 3 "" H 8450 4250 60  0000 C CNN
+F 4 "25V" H 8450 4250 60  0001 C CNN "Voltage"
+F 5 "" H 8450 4250 60  0001 C CNN "InternalName"
+F 6 "" H 8450 4250 60  0001 C CNN "Manufacturer No"
+F 7 "" H 8450 4250 60  0001 C CNN "Source"
+F 8 "X5R" H 8450 4250 60  0001 C CNN "Tolerance"
+F 9 "" H 0   0   50  0001 C CNN "Description"
+F 10 "" H 0   0   50  0001 C CNN "Manufacturer"
+	1    8450 4250
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8450 4550 8700 4550
+Wire Wire Line
+	8700 4550 8700 4400
+Connection ~ 8450 4550
+Wire Wire Line
+	8450 4000 8700 4000
+Wire Wire Line
+	8700 4000 8700 4100
+Connection ~ 8450 4000
 $EndSCHEMATC
